@@ -98,12 +98,5 @@ local plugins = {
       }
     end,
   },
-  {
-    "simrat39/rust-tools.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("rust-tools").setup {}
-    end,
-  },
 }
 return plugins
