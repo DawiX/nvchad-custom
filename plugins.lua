@@ -50,6 +50,8 @@ local plugins = {
         "sqlfmt",
         "gopls",
         "markdownlint",
+        "dockerfile-language-server",
+        "hadolint",
       },
     },
   },
