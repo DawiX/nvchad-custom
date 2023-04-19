@@ -12,7 +12,7 @@ GO_VERSION="1.20.3"
 help() {
     echo "Manage provisioning of NeoVim on Ubuntu"
     echo
-    echo "Syntax: source ./provision_neovim.sh [-h|d|c|n|a]"
+    echo "Syntax: ./provision_neovim.sh [-h|d|c|n|a]"
     echo "options:"
     echo "h         Print this Help."
     echo "d         Install All dependencies"
@@ -46,20 +46,23 @@ install_neovim() {
 
 install_node() {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
     # shellcheck source=/dev/null
-    source ~/.bashrc
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    # shellcheck source=/dev/null
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
     nvm install "$1"
 }
 
 install_terraform() {
     git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
-    ln -s ~/.tfenv/bin/* /usr/local/bin
+    ln -s "$HOME"/.tfenv/bin/* /usr/local/bin
     tfenv install "$1" && tfenv use "$1"
 }
 
 install_terragrunt() {
     git clone https://github.com/cunymatthieu/tgenv.git ~/.tgenv
-    ln -s ~/.tgenv/bin/* /usr/local/bin
+    ln -s "$HOME"/.tgenv/bin/* /usr/local/bin
     tgenv install "$1" && tgenv use "$1"
 }
 
@@ -82,20 +85,14 @@ remove_nvim_config() {
 
 install_nvchad() {
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-    git clone https://github.com/DawiX/nvchad-custom.git ~/.config/nvim/lua/config
-}
-
-install_astronvim() {
-    git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-    git clone https://github.com/DawiX/astrovim-user-overrides.git ~/.config/nvim/lua/user
+    git clone https://github.com/DawiX/nvchad-custom.git ~/.config/nvim/lua/custom
 }
 
 DEPS="false"
 UNINSTALL="false"
 NVCHAD="false"
-ASTRO="false"
 
-while getopts ":hdcna" option; do
+while getopts ":hdcn" option; do
     case $option in
     h)
         help
@@ -109,9 +106,6 @@ while getopts ":hdcna" option; do
         ;;
     n)
         NVCHAD="true"
-        ;;
-    a)
-        ASTRO="true"
         ;;
     \?)
         echo "Error: Invalid option"
@@ -141,9 +135,5 @@ fi
 if [ "$NVCHAD" == "true" ]; then
     echo "Installing Nvchad"
     install_nvchad
-fi
-if [ "$ASTRO" == "true" ]; then
-    echo "Installing AstroNvim"
-    install_astronvim
 fi
 ```

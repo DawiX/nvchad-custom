@@ -49,6 +49,7 @@ local plugins = {
         "sqlls",
         "sqlfmt",
         "gopls",
+        "markdownlint",
       },
     },
   },
