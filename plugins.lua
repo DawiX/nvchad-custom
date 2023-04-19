@@ -52,6 +52,7 @@ local plugins = {
         "markdownlint",
         "dockerfile-language-server",
         "hadolint",
+        "marksman",
       },
     },
   },

@@ -68,3 +68,10 @@ lspconfig.dockerls.setup {
   filetypes = { "dockerfile" },
   root_dir = lspconfig.util.root_pattern("Dockerfile"),
 }
+
+lspconfig.marksman.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "marksman", "server" },
+  filetypes = { "markdown" },
+}
