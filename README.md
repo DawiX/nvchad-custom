@@ -2,6 +2,8 @@
 
 ## Helper Script
 
+Tailored for Ubuntu 22.04. If you want to use it, modify accordingly.
+
 ```bash
 #!/bin/bash
 NVIM_VERSION="v0.9.0"
