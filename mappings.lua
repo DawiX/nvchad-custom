@@ -5,6 +5,8 @@ M.custom = {
     ["vv"] = { "<Esc>", "vv to leave visual mode" },
     ["J"] = { ":<C-u>silent! '<,'>move'>+1<CR>gv=gv", "Move highlight down" },
     ["K"] = { ":<C-u>silent! '<,'>move-2<CR>gv=gv", "Move highlight up" },
+    ["<"] = { "<gv", "unindent line" },
+    [">"] = { ">gv", "indent line" },
   },
   n = {
     ["<leader>Ti"] = { ":!terraform init --upgrade<CR>", "Terraform init upgrade" },
