@@ -74,7 +74,7 @@ local plugins = {
   { "vim-scripts/ReplaceWithRegister" }, -- replace with register contents using motion (gr + motion)
   {
     "NTBBloodbath/rest.nvim",
-    lazy = false,
+    ft = "http",
     requires = { "nvim-lua/plenary.nvim" },
     config = function()
       require("rest-nvim").setup {
@@ -103,8 +103,7 @@ local plugins = {
     end,
   },
   { "ggandor/leap.nvim",
-    -- lazy = false,
-    ft = "http",
+    lazy = false,
     dependencies = {
       "tpope/vim-repeat",
     },
