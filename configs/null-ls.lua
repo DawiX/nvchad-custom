@@ -14,7 +14,9 @@ local sources = {
   formatting.jq,
   formatting.markdownlint,
   formatting.rustfmt,
-  formatting.shfmt,
+  formatting.shfmt.with {
+    extra_args = {"-i", "4"},
+  },
   formatting.shellharden,
   formatting.sqlfmt,
   formatting.terraform_fmt,
