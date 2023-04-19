@@ -15,7 +15,15 @@ lspconfig.terraformls.setup {
   capabilities = capabilities,
   cmd = { "terraform-ls", "serve" },
   filetypes = { "terraform", "terraform-vars" },
-  root_dir = lspconfig.util.root_pattern(".terraform", ".terraform.lock.hcl", ".git"),
+  root_dir = lspconfig.util.root_pattern(".terraform", ".git"),
+}
+
+lspconfig.tflint.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "tflint", "--langserver" },
+  filetypes = { "terraform" },
+  root_dir = lspconfig.util.root_pattern(".terraform", ".tflint.hcl", ".git"),
 }
 
 lspconfig.gopls.setup {
