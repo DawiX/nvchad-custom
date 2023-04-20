@@ -66,6 +66,9 @@ lspconfig.yamlls.setup {
         enabled = false,
       },
     },
+    yaml = {
+      keyOrdering = false,
+    },
   },
 }
 
