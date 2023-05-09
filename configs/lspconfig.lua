@@ -68,6 +68,9 @@ lspconfig.yamlls.setup {
     },
     yaml = {
       keyOrdering = false,
+      customTags = {
+        "!reference sequence",
+      },
     },
   },
 }
@@ -77,7 +80,7 @@ lspconfig.dockerls.setup {
   capabilities = capabilities,
   cmd = { "docker-langserver", "--stdio" },
   filetypes = { "dockerfile" },
-  root_dir = lspconfig.util.root_pattern("Dockerfile"),
+  root_dir = lspconfig.util.root_pattern "Dockerfile",
 }
 
 lspconfig.marksman.setup {
@@ -85,4 +88,28 @@ lspconfig.marksman.setup {
   capabilities = capabilities,
   cmd = { "marksman", "server" },
   filetypes = { "markdown" },
+}
+
+-- lspconfig.zls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = { "zls" },
+--   filetypes = { "zig", "zir" },
+--   root_dir = lspconfig.util.root_pattern("zls.json", ".git"),
+-- }
+
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "pyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "workspace",
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
 }

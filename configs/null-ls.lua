@@ -20,6 +20,7 @@ local sources = {
   formatting.shellharden,
   formatting.sqlfmt,
   formatting.terraform_fmt,
+  -- formatting.zigfmt,
 
   lint.ansiblelint,
   lint.cfn_lint,
