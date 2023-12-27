@@ -27,7 +27,7 @@ local plugins = {
     opts = {
       ensure_installed = {
         "rust-analyzer",
-        "rustfmt",
+        -- "rustfmt", -- not needed
         "lua-language-server",
         "stylua",
         "html-lsp",
@@ -48,6 +48,7 @@ local plugins = {
         "yaml-language-server",
         "jsonlint",
         "json-lsp",
+        "lemminx",
         "sqlls",
         "sqlfmt",
         "gopls",
@@ -56,6 +57,8 @@ local plugins = {
         "dockerfile-language-server",
         "hadolint",
         "marksman",
+        -- "csharp-language-server",
+        -- "csharpier",
         -- "zls",
       },
     },
@@ -63,7 +66,7 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
+      "nvimtools/none-ls.nvim",
       config = function()
         require "custom.configs.null-ls"
       end,
@@ -74,7 +77,7 @@ local plugins = {
     end,
   },
   { "hashivim/vim-terraform" },
-  { "tpope/vim-surround" },
+  { "tpope/vim-surround", lazy = false },
   { "mg979/vim-visual-multi", lazy = false },
   { "vim-scripts/ReplaceWithRegister" }, -- replace with register contents using motion (gr + motion)
   {
@@ -107,14 +110,31 @@ local plugins = {
       }
     end,
   },
-  { "ggandor/leap.nvim",
+  -- this collides with vim-surround's mappings
+  -- and leap vs vim-surround, leap is more useful plugin
+  -- {
+  --   "ggandor/leap.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     "tpope/vim-repeat",
+  --   },
+  --   config = function()
+  --     require("leap").add_default_mappings()
+  --   end,
+  -- },
+  {
+    "NeogitOrg/neogit",
     lazy = false,
     dependencies = {
-      "tpope/vim-repeat",
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
     },
-    config = function ()
-      require("leap").add_default_mappings()
-    end,
+    config = true,
+  },
+  {
+    "eandrju/cellular-automaton.nvim",
+    lazy = false,
   },
 }
 return plugins

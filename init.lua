@@ -11,3 +11,5 @@ vim.opt.iskeyword = vim.opt.iskeyword + { "-" }
 
 vim.g.autoformat_enabled = true
 vim.g.terraform_fmt_on_save = 1
+
+vim.o.shell = "/usr/local/bin/fish"

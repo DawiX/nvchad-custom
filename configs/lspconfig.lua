@@ -140,3 +140,24 @@ lspconfig.pyright.setup {
     },
   },
 }
+
+-- lspconfig.csharp_ls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = { "csharp-ls" },
+--   filetypes = { "cs" },
+-- }
+
+lspconfig.sqlls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "sql-language-server", "up", "--method", "stdio" },
+  filetypes = { "sql", "mysql", "psql" },
+}
+
+lspconfig.lemminx.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "lemminx" },
+  filetypes = { "xml" },
+}
