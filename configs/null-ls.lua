@@ -21,7 +21,7 @@ local sources = {
   formatting.sqlfmt,
   formatting.terraform_fmt,
   -- formatting.zigfmt,
-  formatting.csharpier,
+  -- formatting.csharpier,
   formatting.packer,
   formatting.xmlformat,
 
