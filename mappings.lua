@@ -23,9 +23,6 @@ M.custom = {
     ["<leader>aa"] = { ":set ft=yaml.ansible<CR>", "Attach ansiblels manually for open file" },
     ["<leader>cw"] = { ":cd %:p:h<CR>", "Change dir to dir of currently opened file" },
     ["<leader>mr"] = { ":CellularAutomaton make_it_rain<CR>", "Make it rain" },
-
-    ["<leader>cs"] = { "<Plug>Csurround", "Δ surround under cursor from <X> to <Y>" },
-    ["<leader>cS"] = { "<Plug>CSurround", "Δ\n surround under cursor from <X> to <Y>" },
   },
 }
 

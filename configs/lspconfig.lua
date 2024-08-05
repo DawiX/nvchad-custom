@@ -141,12 +141,12 @@ lspconfig.pyright.setup {
   },
 }
 
--- lspconfig.csharp_ls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   cmd = { "csharp-ls" },
---   filetypes = { "cs" },
--- }
+lspconfig.csharp_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "csharp-ls" },
+  filetypes = { "cs" },
+}
 
 lspconfig.sqlls.setup {
   on_attach = on_attach,

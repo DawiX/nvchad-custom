@@ -27,13 +27,12 @@ local plugins = {
     opts = {
       ensure_installed = {
         "rust-analyzer",
-        -- "rustfmt", -- not needed
         "lua-language-server",
         "stylua",
         "html-lsp",
         "prettier",
         "terraform-ls",
-        "tflint",
+        "tflint@v0.49.0",
         "bash-language-server",
         "shellcheck",
         "shfmt",
@@ -57,9 +56,8 @@ local plugins = {
         "dockerfile-language-server",
         "hadolint",
         "marksman",
-        -- "csharp-language-server",
-        -- "csharpier",
-        -- "zls",
+        "csharp-language-server",
+        "csharpier",
       },
     },
   },
